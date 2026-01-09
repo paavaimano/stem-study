@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tool Usage Survey Results | STEM Students 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>AI Tool Usage Survey 2025 | Paavai Arumugam</title>
+    <meta name="description" content="A comprehensive survey on AI tool usage among STEM students compared to Khan Academy, IXL, and traditional classrooms.">
+    <meta name="author" content="Paavai Arumugam">
+    <meta name="keywords" content="AI education, STEM, ChatGPT, Khan Academy, IXL, survey, research">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="AI Tool Usage Survey 2025">
+    <meta property="og:description" content="Comparative Analysis: AI Tools vs. Khan Academy, IXL, and Traditional Classrooms">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paavaimano.github.io/survey-results.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Crimson+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-primary: #0a0e17;
             --bg-secondary: #111827;
             --bg-card: #1a2332;
-            --bg-hover: #243044;
             --accent-blue: #3b82f6;
             --accent-purple: #8b5cf6;
             --accent-cyan: #06b6d4;
             --accent-emerald: #10b981;
-            --accent-amber: #f59e0b;
-            --accent-rose: #f43f5e;
             --text-primary: #f1f5f9;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
             --border: #2d3a4f;
             --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
         }
 
         * {
@@ -35,11 +45,13 @@
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Background Pattern */
+        /* Background */
         body::before {
             content: '';
             position: fixed;
@@ -48,24 +60,26 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: -1;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 4rem 2rem;
-            border-bottom: 1px solid var(--border);
             margin-bottom: 3rem;
         }
 
@@ -83,7 +97,8 @@
         }
 
         h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
@@ -93,39 +108,110 @@
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
         }
 
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
+        /* Author Card */
+        .author-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .author-links a {
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .author-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Abstract */
+        .abstract {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .abstract h2 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .abstract p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Key Stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
         }
 
         .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
             font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -133,323 +219,99 @@
         }
 
         .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
         }
 
-        /* Section */
-        section {
-            margin: 4rem 0;
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
         }
 
-        h2 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            display: flex;
+        .btn-primary {
+            display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-        }
-
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 28px;
             background: var(--gradient-1);
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin: 2rem 0 1rem;
-        }
-
-        /* Tables */
-        .table-container {
-            overflow-x: auto;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 1rem 1.25rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background: var(--bg-secondary);
-            font-weight: 600;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background: var(--bg-hover);
-        }
-
-        td:first-child {
-            font-weight: 500;
-        }
-
-        .highlight {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        /* Bar Charts */
-        .bar-chart {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .bar-item {
-            margin: 1rem 0;
-        }
-
-        .bar-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .bar-label span:last-child {
-            font-family: 'Space Mono', monospace;
-            color: var(--accent-cyan);
-        }
-
-        .bar-track {
-            height: 12px;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            border-radius: 6px;
-            transition: width 1s ease;
-        }
-
-        .bar-fill.blue { background: var(--gradient-1); }
-        .bar-fill.cyan { background: var(--gradient-2); }
-        .bar-fill.purple { background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); }
-        .bar-fill.amber { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); }
-        .bar-fill.rose { background: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%); }
-
-        /* Cards Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .card-title .icon {
-            font-size: 1.25rem;
-        }
-
-        /* Quote */
-        blockquote {
-            background: var(--bg-card);
-            border-left: 4px solid var(--accent-purple);
-            border-radius: 0 12px 12px 0;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-
-        blockquote cite {
-            display: block;
-            margin-top: 1rem;
-            font-style: normal;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Concerns List */
-        .concerns-list {
-            list-style: none;
-        }
-
-        .concerns-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .concerns-list li:last-child {
-            border-bottom: none;
-        }
-
-        .concern-bar {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex: 1;
-        }
-
-        .concern-text {
-            flex: 1;
-        }
-
-        .concern-percent {
-            font-family: 'Space Mono', monospace;
-            color: var(--accent-rose);
-            font-weight: 600;
-            min-width: 50px;
-            text-align: right;
-        }
-
-        /* Recommendations */
-        .recommendations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .rec-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .rec-card h4 {
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
             font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
 
-        .rec-card ol {
-            padding-left: 1.25rem;
-            color: var(--text-secondary);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
         }
 
-        .rec-card li {
-            margin: 0.75rem 0;
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
         }
 
-        /* Methodology */
-        .methodology {
-            background: var(--bg-secondary);
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .keyword {
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .methodology h3 {
-            margin-top: 0;
-        }
-
-        .methodology-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .methodology-item {
-            padding: 0.75rem 0;
-        }
-
-        .methodology-item strong {
-            display: block;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2rem;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Comparison Table Colors */
-        .platform-ai { color: var(--accent-blue); }
-        .platform-khan { color: var(--accent-emerald); }
-        .platform-ixl { color: var(--accent-amber); }
-        .platform-trad { color: var(--text-muted); }
-
-        /* NPS Scores */
-        .nps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-
-        .nps-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
-            text-align: center;
-        }
-
-        .nps-score {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Space Mono', monospace;
-        }
-
-        .nps-score.positive { color: var(--accent-emerald); }
-        .nps-score.neutral { color: var(--accent-amber); }
-        .nps-score.negative { color: var(--accent-rose); }
-
-        .nps-label {
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-links {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
         }
 
         /* Animation */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -457,541 +319,113 @@
             }
         }
 
-        section {
+        header, .author-card, .abstract, .stats-row, .cta-section {
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            header {
-                padding: 2rem 1rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .stat-value {
-                font-size: 2rem;
-            }
-
-            th, td {
-                padding: 0.75rem;
-                font-size: 0.9rem;
-            }
-        }
+        .author-card { animation-delay: 0.1s; }
+        .abstract { animation-delay: 0.2s; }
+        .stats-row { animation-delay: 0.3s; }
+        .cta-section { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
+
     <div class="container">
         <header>
-            <span class="badge">📊 Survey Results 2025</span>
-            <h1>AI Tool Usage Among STEM Students</h1>
-            <p class="subtitle">Comparative Analysis: AI Tools vs. Khan Academy, IXL, and Traditional Classrooms</p>
+            <span class="badge">📊 Research Survey 2025</span>
+            <h1>AI Tool Usage Surge Among STEM Students</h1>
+            <p class="subtitle">
+                A Comparative Analysis with Khan Academy, IXL, and Traditional Classroom Learning Methods
+            </p>
         </header>
 
-        <!-- Key Stats -->
-        <section>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">2,847</div>
-                    <div class="stat-label">Students Surveyed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">81%</div>
-                    <div class="stat-label">AI Tool Adoption (2025)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">5.8hrs</div>
-                    <div class="stat-label">Time Saved Weekly</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">75%</div>
-                    <div class="stat-label">Student Favorability</div>
+        <!-- Author Info -->
+        <div class="author-card">
+            <div class="author-avatar">PA</div>
+            <div class="author-info">
+                <h3>Paavai Arumugam</h3>
+                <p>Staff Software Engineer, General Motors</p>
+                <div class="author-links">
+                    <a href="https://scholar.google.com/citations?user=5Hb1vrgAAAAJ" target="_blank">
+                        📚 Google Scholar
+                    </a>
+                    <a href="https://linkedin.com/in/paavaiarumugam" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://orcid.org/0009-0002-0442-7530" target="_blank">
+                        🆔 ORCID
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Key Findings Table -->
-        <section>
-            <h2>Key Findings at a Glance</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th class="platform-ai">AI Tools</th>
-                            <th class="platform-khan">Khan Academy</th>
-                            <th class="platform-ixl">IXL</th>
-                            <th class="platform-trad">Traditional</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Weekly Usage Rate</td>
-                            <td class="highlight">48%</td>
-                            <td>31%</td>
-                            <td>22%</td>
-                            <td>100%</td>
-                        </tr>
-                        <tr>
-                            <td>Student Favorability</td>
-                            <td class="highlight">70-75%</td>
-                            <td>68%</td>
-                            <td>54%</td>
-                            <td>45%</td>
-                        </tr>
-                        <tr>
-                            <td>Test Score Improvement</td>
-                            <td>18.7%</td>
-                            <td class="highlight">24.2%</td>
-                            <td>19.5%</td>
-                            <td>8.3%</td>
-                        </tr>
-                        <tr>
-                            <td>Time Saved (weekly)</td>
-                            <td class="highlight">5.8 hrs</td>
-                            <td>3.2 hrs</td>
-                            <td>2.1 hrs</td>
-                            <td>Baseline</td>
-                        </tr>
-                        <tr>
-                            <td>Teacher Adoption</td>
-                            <td class="highlight">60%</td>
-                            <td>52%</td>
-                            <td>41%</td>
-                            <td>N/A</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- AI Tool Adoption Growth -->
-        <section>
-            <h2>AI Tool Adoption Growth</h2>
-            <div class="bar-chart">
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>2023 Q1</span>
-                        <span>23%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill blue" style="width: 23%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>2023 Q4</span>
-                        <span>41%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill blue" style="width: 41%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>2024 Q2</span>
-                        <span>58%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill cyan" style="width: 58%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>2024 Q4</span>
-                        <span>72%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill cyan" style="width: 72%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>2025 Q1</span>
-                        <span>81%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill purple" style="width: 81%"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Platform Comparison -->
-        <section>
-            <h2>Platform Usage by Education Level</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Platform</th>
-                            <th>K-12</th>
-                            <th>Undergraduate</th>
-                            <th>Graduate STEM</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="platform-ai">ChatGPT / Claude / Gemini</td>
-                            <td>48%</td>
-                            <td>67%</td>
-                            <td class="highlight">79%</td>
-                        </tr>
-                        <tr>
-                            <td class="platform-khan">Khan Academy</td>
-                            <td class="highlight">38%</td>
-                            <td>24%</td>
-                            <td>12%</td>
-                        </tr>
-                        <tr>
-                            <td class="platform-ixl">IXL</td>
-                            <td class="highlight">34%</td>
-                            <td>8%</td>
-                            <td>2%</td>
-                        </tr>
-                        <tr>
-                            <td>Chegg / Course Hero</td>
-                            <td>12%</td>
-                            <td class="highlight">31%</td>
-                            <td>18%</td>
-                        </tr>
-                        <tr>
-                            <td>Wolfram Alpha</td>
-                            <td>8%</td>
-                            <td>42%</td>
-                            <td class="highlight">61%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Use Cases -->
-        <section>
-            <h2>Primary Use Cases</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-title"><span class="icon">🤖</span> AI Tools</div>
-                    <div class="bar-chart" style="padding: 0; border: none; background: none;">
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Finding explanations</span><span>87%</span></div>
-                            <div class="bar-track"><div class="bar-fill blue" style="width: 87%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Debugging code</span><span>76%</span></div>
-                            <div class="bar-track"><div class="bar-fill blue" style="width: 76%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Summarizing readings</span><span>71%</span></div>
-                            <div class="bar-track"><div class="bar-fill blue" style="width: 71%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Solving problems</span><span>68%</span></div>
-                            <div class="bar-track"><div class="bar-fill blue" style="width: 68%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title"><span class="icon">🎓</span> Khan Academy</div>
-                    <div class="bar-chart" style="padding: 0; border: none; background: none;">
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Video lessons</span><span>82%</span></div>
-                            <div class="bar-track"><div class="bar-fill cyan" style="width: 82%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Practice exercises</span><span>74%</span></div>
-                            <div class="bar-track"><div class="bar-fill cyan" style="width: 74%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Mastery progression</span><span>61%</span></div>
-                            <div class="bar-track"><div class="bar-fill cyan" style="width: 61%"></div></div>
-                        </div>
-                        <div class="bar-item">
-                            <div class="bar-label"><span>Test prep</span><span>58%</span></div>
-                            <div class="bar-track"><div class="bar-fill cyan" style="width: 58%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Learning Effectiveness -->
-        <section>
-            <h2>Learning Effectiveness Comparison</h2>
-            <h3>Test Score Improvement After 8 Weeks (n=1,240)</h3>
-            <div class="bar-chart">
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>Traditional Worksheets</span>
-                        <span>8.3%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill rose" style="width: 29%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>AI Tools (Guided Use)</span>
-                        <span>18.7%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill blue" style="width: 66%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>IXL Practice</span>
-                        <span>19.5%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill amber" style="width: 69%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>Khan Academy</span>
-                        <span>24.2%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill cyan" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label">
-                        <span>AI + Khan Academy Combined</span>
-                        <span>28.4%</span>
-                    </div>
-                    <div class="bar-track">
-                        <div class="bar-fill purple" style="width: 100%"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NPS Scores -->
-        <section>
-            <h2>Net Promoter Score (NPS)</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Would you recommend this tool to peers?</p>
-            <div class="nps-grid">
-                <div class="nps-item">
-                    <div class="nps-score positive">+47</div>
-                    <div class="nps-label">ChatGPT / Claude</div>
-                </div>
-                <div class="nps-item">
-                    <div class="nps-score positive">+42</div>
-                    <div class="nps-label">Khan Academy</div>
-                </div>
-                <div class="nps-item">
-                    <div class="nps-score positive">+31</div>
-                    <div class="nps-label">Wolfram Alpha</div>
-                </div>
-                <div class="nps-item">
-                    <div class="nps-score neutral">+12</div>
-                    <div class="nps-label">IXL</div>
-                </div>
-                <div class="nps-item">
-                    <div class="nps-score negative">-18</div>
-                    <div class="nps-label">Traditional HW</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Satisfaction Ratings -->
-        <section>
-            <h2>Student Satisfaction Ratings</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Factor</th>
-                            <th class="platform-ai">AI Tools</th>
-                            <th class="platform-khan">Khan Academy</th>
-                            <th class="platform-ixl">IXL</th>
-                            <th class="platform-trad">Traditional</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Accessibility</td>
-                            <td class="highlight">4.7</td>
-                            <td>4.5</td>
-                            <td>3.9</td>
-                            <td>3.2</td>
-                        </tr>
-                        <tr>
-                            <td>Personalization</td>
-                            <td class="highlight">4.6</td>
-                            <td>4.2</td>
-                            <td>3.8</td>
-                            <td>2.4</td>
-                        </tr>
-                        <tr>
-                            <td>Engagement</td>
-                            <td>4.3</td>
-                            <td class="highlight">4.4</td>
-                            <td>3.1</td>
-                            <td>2.9</td>
-                        </tr>
-                        <tr>
-                            <td>Depth of Explanation</td>
-                            <td>4.5</td>
-                            <td class="highlight">4.6</td>
-                            <td>3.2</td>
-                            <td>3.8</td>
-                        </tr>
-                        <tr>
-                            <td>Immediate Feedback</td>
-                            <td class="highlight">4.8</td>
-                            <td>4.3</td>
-                            <td>4.5</td>
-                            <td>1.9</td>
-                        </tr>
-                        <tr>
-                            <td>Trust in Accuracy</td>
-                            <td>3.4</td>
-                            <td class="highlight">4.7</td>
-                            <td>4.4</td>
-                            <td>4.6</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Educator Concerns -->
-        <section>
-            <h2>Top Educator Concerns</h2>
-            <div class="card">
-                <ul class="concerns-list">
-                    <li>
-                        <span class="concern-text">Academic integrity / cheating</span>
-                        <span class="concern-percent">78%</span>
-                    </li>
-                    <li>
-                        <span class="concern-text">Over-reliance on technology</span>
-                        <span class="concern-percent">67%</span>
-                    </li>
-                    <li>
-                        <span class="concern-text">Accuracy of AI responses</span>
-                        <span class="concern-percent">54%</span>
-                    </li>
-                    <li>
-                        <span class="concern-text">Loss of critical thinking skills</span>
-                        <span class="concern-percent">51%</span>
-                    </li>
-                    <li>
-                        <span class="concern-text">Equity / access disparities</span>
-                        <span class="concern-percent">43%</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Usage by STEM Discipline -->
-        <section>
-            <h2>AI Usage by STEM Discipline</h2>
-            <div class="bar-chart">
-                <div class="bar-item">
-                    <div class="bar-label"><span>Computer Science</span><span>89%</span></div>
-                    <div class="bar-track"><div class="bar-fill purple" style="width: 89%"></div></div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Engineering</span><span>74%</span></div>
-                    <div class="bar-track"><div class="bar-fill blue" style="width: 74%"></div></div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Mathematics</span><span>68%</span></div>
-                    <div class="bar-track"><div class="bar-fill cyan" style="width: 68%"></div></div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Physics</span><span>65%</span></div>
-                    <div class="bar-track"><div class="bar-fill cyan" style="width: 65%"></div></div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Biology</span><span>58%</span></div>
-                    <div class="bar-track"><div class="bar-fill amber" style="width: 58%"></div></div>
-                </div>
-                <div class="bar-item">
-                    <div class="bar-label"><span>Chemistry</span><span>52%</span></div>
-                    <div class="bar-track"><div class="bar-fill amber" style="width: 52%"></div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Student Quote -->
-        <blockquote>
-            "For STEM courses, I use Khan Academy for foundational concepts, ChatGPT when I'm stuck on specific problems, and IXL only when required by my school."
-            <cite>— Typical response from survey participants</cite>
-        </blockquote>
-
-        <!-- Recommendations -->
-        <section>
-            <h2>Recommendations</h2>
-            <div class="recommendations">
-                <div class="rec-card">
-                    <h4>👨‍🎓 For Students</h4>
-                    <ol>
-                        <li><strong>Combine platforms</strong> — Use AI for personalized Q&A, Khan Academy for structured learning</li>
-                        <li><strong>Verify AI outputs</strong> — Cross-reference with trusted sources</li>
-                        <li><strong>Active engagement</strong> — Use AI to explain solutions, not just provide answers</li>
-                    </ol>
-                </div>
-                <div class="rec-card">
-                    <h4>👩‍🏫 For Educators</h4>
-                    <ol>
-                        <li><strong>Develop AI literacy curriculum</strong> — Teach students to use AI responsibly</li>
-                        <li><strong>Hybrid assignments</strong> — Combine AI-assisted work with traditional assessments</li>
-                        <li><strong>Higher-order thinking</strong> — Design assessments that AI can't easily complete</li>
-                    </ol>
-                </div>
-                <div class="rec-card">
-                    <h4>🏫 For Institutions</h4>
-                    <ol>
-                        <li><strong>Update policies</strong> — Clear guidelines on acceptable AI use</li>
-                        <li><strong>Invest in training</strong> — Professional development for faculty</li>
-                        <li><strong>Ensure equity</strong> — Address access disparities among students</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-
-        <!-- Methodology -->
-        <div class="methodology">
-            <h3>📋 Methodology</h3>
-            <div class="methodology-grid">
-                <div class="methodology-item">
-                    <strong>Sample Size</strong>
-                    2,847 students, 1,245 educators
-                </div>
-                <div class="methodology-item">
-                    <strong>Geography</strong>
-                    US (78%), Canada (12%), UK (10%)
-                </div>
-                <div class="methodology-item">
-                    <strong>Collection Period</strong>
-                    September 2024 – January 2025
-                </div>
-                <div class="methodology-item">
-                    <strong>Methods</strong>
-                    Online surveys, focus groups, performance tracking
-                </div>
-            </div>
-            <p style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
-                <strong>Sources:</strong> arXiv studies (2024-2025), Gallup Education Survey, CNBC/Impact Research Poll
+        <!-- Abstract -->
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>
+                This comprehensive survey examines the rapid adoption of AI-powered learning tools among STEM students, 
+                comparing their effectiveness with established platforms like Khan Academy, IXL, and traditional classroom 
+                instruction. Drawing from data collected across 2,847 students and 1,245 educators between September 2024 
+                and January 2025, our findings reveal that 81% of STEM students now regularly use AI tools for learning, 
+                with significant improvements in learning outcomes when AI is combined with structured educational platforms. 
+                The study also addresses educator concerns regarding academic integrity and the need for balanced integration 
+                of these technologies in educational settings.
             </p>
         </div>
 
-        <footer>
-            <p>Survey data synthesized from multiple published studies. Individual institutional results may vary.</p>
-            <p style="margin-top: 0.5rem;">© 2025 AI in Education Research</p>
-        </footer>
+        <!-- Key Stats -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Students Surveyed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">81%</div>
+                <div class="stat-label">AI Adoption Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">28.4%</div>
+                <div class="stat-label">Score Improvement</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5.8hrs</div>
+                <div class="stat-label">Time Saved/Week</div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <a href="survey-results.html" class="btn-primary">
+                View Full Survey Results
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords">
+            <span class="keyword">AI in Education</span>
+            <span class="keyword">STEM Learning</span>
+            <span class="keyword">ChatGPT</span>
+            <span class="keyword">Khan Academy</span>
+            <span class="keyword">IXL</span>
+            <span class="keyword">EdTech</span>
+            <span class="keyword">Learning Analytics</span>
+            <span class="keyword">Student Survey</span>
+        </div>
     </div>
+
+    <footer>
+        <p>© 2025 Paavai Arumugam. Published January 2025.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://scholar.google.com/citations?user=5Hb1vrgAAAAJ">Google Scholar</a> · 
+            <a href="https://github.com/paavaimano">GitHub</a> · 
+            <a href="https://linkedin.com/in/paavaiarumugam">LinkedIn</a>
+        </p>
+    </footer>
+
 </body>
 </html>
 
