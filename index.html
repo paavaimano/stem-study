@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tool Usage Survey 2025 | Paavai Arumugam</title>
+    <meta name="description" content="A comprehensive survey on AI tool usage among STEM students compared to Khan Academy, IXL, and traditional classrooms.">
+    <meta name="author" content="Paavai Arumugam">
+    <meta name="keywords" content="AI education, STEM, ChatGPT, Khan Academy, IXL, survey, research">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="AI Tool Usage Survey 2025">
+    <meta property="og:description" content="Comparative Analysis: AI Tools vs. Khan Academy, IXL, and Traditional Classrooms">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://paavaimano.github.io/survey-results.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Crimson+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2332;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #2d3a4f;
+            --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Author Card */
+        .author-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .author-links a {
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .author-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Abstract */
+        .abstract {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .abstract h2 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .abstract p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Key Stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--gradient-1);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .keyword {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-links {
+                justify-content: center;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, .author-card, .abstract, .stats-row, .cta-section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .author-card { animation-delay: 0.1s; }
+        .abstract { animation-delay: 0.2s; }
+        .stats-row { animation-delay: 0.3s; }
+        .cta-section { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="badge">📊 Research Survey 2025</span>
+            <h1>AI Tool Usage Surge Among STEM Students</h1>
+            <p class="subtitle">
+                A Comparative Analysis with Khan Academy, IXL, and Traditional Classroom Learning Methods
+            </p>
+        </header>
+
+        <!-- Author Info -->
+        <div class="author-card">
+            <div class="author-avatar">PA</div>
+            <div class="author-info">
+                <h3>Paavai Arumugam</h3>
+                <p>Staff Software Engineer, General Motors</p>
+                <div class="author-links">
+                    <a href="https://scholar.google.com/citations?user=5Hb1vrgAAAAJ" target="_blank">
+                        📚 Google Scholar
+                    </a>
+                    <a href="https://linkedin.com/in/paavaiarumugam" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://orcid.org/0009-0002-0442-7530" target="_blank">
+                        🆔 ORCID
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Abstract -->
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>
+                This comprehensive survey examines the rapid adoption of AI-powered learning tools among STEM students, 
+                comparing their effectiveness with established platforms like Khan Academy, IXL, and traditional classroom 
+                instruction. Drawing from data collected across 2,847 students and 1,245 educators between September 2024 
+                and January 2025, our findings reveal that 81% of STEM students now regularly use AI tools for learning, 
+                with significant improvements in learning outcomes when AI is combined with structured educational platforms. 
+                The study also addresses educator concerns regarding academic integrity and the need for balanced integration 
+                of these technologies in educational settings.
+            </p>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-value">2,847</div>
+                <div class="stat-label">Students Surveyed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">81%</div>
+                <div class="stat-label">AI Adoption Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">28.4%</div>
+                <div class="stat-label">Score Improvement</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5.8hrs</div>
+                <div class="stat-label">Time Saved/Week</div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <a href="survey-results.html" class="btn-primary">
+                View Full Survey Results
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords">
+            <span class="keyword">AI in Education</span>
+            <span class="keyword">STEM Learning</span>
+            <span class="keyword">ChatGPT</span>
+            <span class="keyword">Khan Academy</span>
+            <span class="keyword">IXL</span>
+            <span class="keyword">EdTech</span>
+            <span class="keyword">Learning Analytics</span>
+            <span class="keyword">Student Survey</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Paavai Arumugam. Published January 2025.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://scholar.google.com/citations?user=5Hb1vrgAAAAJ">Google Scholar</a> · 
+            <a href="https://github.com/paavaimano">GitHub</a> · 
+            <a href="https://linkedin.com/in/paavaiarumugam">LinkedIn</a>
+        </p>
+    </footer>
+
+</body>
+</html>
+
